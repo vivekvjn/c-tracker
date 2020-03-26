@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 
 import SidePanel from './components/Layout/SidePanel';
+import FilterPanel from './components/Layout/FilterPanel';
+import NetworkMap from './components/NetworkMap/NetworkMap';
 
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -32,6 +34,11 @@ import Paper from '@material-ui/core/Paper';
 
 import blue from '@material-ui/core/colors/blue';
 import pink from '@material-ui/core/colors/pink';
+
+import { Provider } from 'react-redux';
+import { store } from './Redux/store';
+
+import NoSSR from 'react-no-ssr';
 
 const drawerWidth = 240;
 
@@ -194,7 +201,14 @@ const App = props => {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Paper className={classes.paper}>Hello World</Paper>
+          <Paper className={classes.paper}>
+            {/*             <Provider store={store}>
+              <NoSSR>
+                <FilterPanel />
+                <NetworkMap height="100%" width="70%" />
+              </NoSSR>
+            </Provider> */}
+          </Paper>
         </main>
       </div>
     </ThemeProvider>
